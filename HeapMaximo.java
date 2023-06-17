@@ -78,4 +78,7 @@ public class HeapMaximo<T extends Comparable<T>>{
         }
         return minItem;
     }
+    public String toString(){
+        return arreglo.toString();
+    }
 }

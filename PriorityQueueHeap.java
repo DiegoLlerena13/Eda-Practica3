@@ -4,16 +4,16 @@ public class PriorityQueueHeap<T extends Comparable<T>> {
         heap = new HeapMaximo<>();
     }
 
-    public void enqueue(T item, int priority) {
+    public void enqueue(T item, int priority) { //Agrega los elmentos de mayor a menor porque es un arbol maximo
         PriorityItem<T> priorityItem = new PriorityItem<>(item, priority);
         heap.insertElemento(priorityItem);
     }
 
-    public boolean isEmpty() {
+    public boolean isEmpty() {// metdo para saber si el arreglo esta vacio
         return heap.isEmpty();
     }
 
-    public T dequeue() throws ExceptionIsEmpty {
+    public T dequeue() throws ExceptionIsEmpty { //Elimina y regresa el elemnto de mayor prioridad siempre, además ordena nuevamente el heap
         if (isEmpty()) {
             throw new ExceptionIsEmpty("la cola esta vacia");
         }
@@ -21,7 +21,7 @@ public class PriorityQueueHeap<T extends Comparable<T>> {
         return priorityItem.getItem();
     }
 
-    public T front() throws ExceptionIsEmpty {
+    public T back() throws ExceptionIsEmpty { //Devuelve el elemento de menor prioridad
         if (isEmpty()) {
             throw new ExceptionIsEmpty("la cola esta vacia");
         }
@@ -29,7 +29,7 @@ public class PriorityQueueHeap<T extends Comparable<T>> {
         return priorityItem.getItem();
     }
 
-    public T back() throws ExceptionIsEmpty {
+    public T front() throws ExceptionIsEmpty { //Devuelve el elemento de mayor proridad
         if (isEmpty()) {
             throw new ExceptionIsEmpty("la cola esta vacia");
         }
@@ -41,7 +41,7 @@ public class PriorityQueueHeap<T extends Comparable<T>> {
         return heap.toString();
     }
 
-    private class PriorityItem<T extends Comparable<T>> implements Comparable<PriorityItem<T>> {
+    private class PriorityItem<T extends Comparable<T>> implements Comparable<PriorityItem<T>> { //Clase de elemento de prioridad
         private T item;
         private int priority;
 
