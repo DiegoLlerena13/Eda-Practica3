@@ -5,7 +5,6 @@ public class HeapMaximo<T extends Comparable<T>>{
     public HeapMaximo(){
         this.arreglo=new ArrayList<>();
     }
-
     public ArrayList<T> getArreglo(){
         return this.arreglo;
     }
@@ -56,5 +55,27 @@ public class HeapMaximo<T extends Comparable<T>>{
             swap(index, largestIndex);//Se intercambian los valores para ordenar el arbol
             eliminar(largestIndex);//se continua evaluando desde la posición que se cambio
         }
+    }
+    public int size(){
+        return arreglo.size();
+    }
+    public T peek() {
+        return this.arreglo.get(0);
+    }
+    public T getMax(){ //Metodo que devuelve el mayor elemento del heap
+        return arreglo.get(0);
+    }
+    public T getMin() throws ExceptionIsEmpty { //Método que devuelve el mínimo valor del heap
+        if (isEmpty()) {
+            throw new ExceptionIsEmpty("El heap está vacío");
+        }
+        T minItem = arreglo.get(0);
+        for (int i = 1; i < arreglo.size(); i++) {
+            T currentItem = arreglo.get(i);
+            if (currentItem.compareTo(minItem) < 0) {
+                minItem = currentItem;
+            }
+        }
+        return minItem;
     }
 }

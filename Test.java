@@ -1,5 +1,5 @@
 public class Test {
-    public static void main(String[]args){
+    public static void main(String[]args) throws ExceptionIsEmpty{
         HeapMaximo<Integer> arbol= new HeapMaximo<>();
         arbol.insertElemento(14);
         arbol.insertElemento(8);
@@ -19,5 +19,10 @@ public class Test {
         for (Integer p : arbol.getArreglo()) {
             System.out.print(p+ ", ");
         }
+        System.out.println();
+        int maxElement = arbol.getMax();
+        System.out.println("Máximo elemento: " + maxElement);
+        int minElement = arbol.getMin();
+        System.out.println("Mínimo elemento: " + minElement);
     }
 }
